@@ -1,0 +1,62 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+
+    /* Projects */
+    "incremental": true /* Save .tsbuildinfo files to allow for incremental compilation of projects. */,
+    "target": "es5" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "module": "commonjs" /* Specify what module code is generated. */,
+
+    /* Language and Environment */
+    "experimentalDecorators": true /* Enable experimental support for legacy experimental decorators. */,
+
+    /* Modules */
+    "rootDir": "." /* Specify the root folder within your source files. */,
+    "baseUrl": "." /* Specify the base directory to resolve non-relative module names. */,
+    "paths": {
+      "@models/*": ["models/*"],
+      "@views/*": ["views/*"],
+      "@controllers/*": ["controllers/*"],
+      "@routes/*": ["routes/*"],
+      "@utils/*": ["utils/*"]
+    } /* Specify a set of entries that re-map imports to additional lookup locations. */,
+
+    /* JavaScript Support */
+    "allowJs": true /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */,
+
+    /* Emit */
+    "declaration": false /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
+
+    "sourceMap": true /* Create source map files for emitted JavaScript files. */,
+    "outDir": "build" /* Specify an output folder for all emitted files. */,
+    "noEmit": false /* Disable emitting files from a compilation. */,
+    "downlevelIteration": true /* Emit more compliant, but verbose and less performant JavaScript for iteration. */,
+
+    /* Interop Constraints */
+    "allowSyntheticDefaultImports": true /* Allow 'import x from y' when a module doesn't have a default export. */,
+    "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+
+    /* Type Checking */
+    "strict": true /* Enable all strict type-checking options. */,
+    "noImplicitAny": false /* Enable error reporting for expressions and declarations with an implied 'any' type. */,
+    "strictNullChecks": false /* When type checking, take into account 'null' and 'undefined'. */,
+    "noImplicitThis": true /* Enable error reporting when 'this' is given the type 'any'. */,
+    "alwaysStrict": true /* Ensure 'use strict' is always emitted. */,
+    "noUnusedLocals": false /* Enable error reporting when local variables aren't read. */,
+    "noFallthroughCasesInSwitch": false /* Enable error reporting for fallthrough cases in switch statements. */,
+
+    /* Completeness */
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+  },
+  "include": [
+    "global.d.ts",
+    "models",
+    "views",
+    "controllers",
+    "routes",
+    "utils",
+    "**/*.ts"
+  ],
+  "exclude": ["node_modules", "build"]
+}

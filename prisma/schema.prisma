@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  title     String   @db.VarChar(255)
+  content   String?
+  published Boolean  @default(false)
+  authorId  Int
+  comments  Comment[]
+  user      User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([authorId])
+  @@map("post")
+}
+
+model Comment {
+  id       Int    @id @default(autoincrement())
+  comment  String @db.VarChar(200)
+  postId   Int
+  authorId Int
+  user     User   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  post     Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("comment")
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  userId Int     @unique(map: "Profile_userId_key")
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Profile_userId_fkey")
+
+  @@map("profile")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  email    String   @unique(map: "User_email_key")
+  name     String?
+  comments Comment[]
+  post     Post[]
+  profile  Profile?
+
+  @@map("user")
+}
